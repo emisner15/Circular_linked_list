@@ -110,6 +110,17 @@ public:
 
     }
 
+    void delete_first(){
+        node *temp = new node;
+        temp = current;
+        current = current -> next;
+        delete temp;
+    }
+
+    void delete_at_position(int value, int position){
+
+    }
+
 };
 
 
@@ -121,8 +132,11 @@ int main()
     obj1.make_node(45);
     obj1.make_node(0);
     obj1.make_node(7);
+    //obj1.make_node(7);
     //obj1.insert_front(3);
     //obj1.add_at_position(3,2);
-    obj1.add_at_position(4 ,200000);
+    //obj1.add_at_position(4 ,200000);
+    //obj1.delete_first();
+    obj1.delete_last();
     obj1.display();
 }
