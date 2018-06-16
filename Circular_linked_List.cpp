@@ -5,7 +5,7 @@
 
 using namespace std;
 
-string error =  "something went wrong";
+string error =  "something went wrong exiting program";
 string does_not_exist = "This item does not exist in the list: ";
 
 struct node
@@ -46,10 +46,6 @@ public:
     void display(){
         node *temp = new node;
         temp = current -> next;
-        if(current == NULL){
-            cout << "There is no list to Display" << endl;
-            return;
-        }
 
         while(temp != current){
             cout << "temp's location: " << temp << endl;
@@ -217,10 +213,20 @@ public:
 
     }
 
+    void make_premade_list(){
+        cout << "Making you a pre-made list" << endl;
+        make_node(2);
+        make_node(3);
+        make_node(4);
+        make_node(5);
+        make_node(6);
+        make_node(7);
+        display();
+    }
+
 
     void menu(){
         int selection;
-        char again = 'y';
         cout << "Option 1: Make Node" << endl;
         cout << "Option 2: Add node at selected destination" << endl;
         cout << "Option 3: Add node at front" << endl;
@@ -229,11 +235,17 @@ public:
         cout << "Option 6: Search List" << endl;
         cout << "Option 7: Update A Node" << endl;
         cout << "Option 8: Display List" << endl;
+        cout << "Option 9: Make pre-made list" <<endl;
         cout << endl;
         cout << "Enter your selection: ";
         cin >> selection;
 
-        switch(selection){
+        if(!cin){
+            cout << error << endl;
+            return;
+        }
+
+        switch((int)selection){
         case 1:
             int node_info;
             cout <<"Enter Information for the Node" << endl;
@@ -274,9 +286,14 @@ public:
             break;
         case 8:
             display();
-
+            break;
+        case 9:
+            make_premade_list();
+            break;
+        default:
+            cout << " not a selection" << endl;
+            break;
         }
-
     }
 
 };
