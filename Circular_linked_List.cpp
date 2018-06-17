@@ -226,74 +226,83 @@ public:
 
 
     void menu(){
-        int selection;
-        cout << "Option 1: Make Node" << endl;
-        cout << "Option 2: Add node at selected destination" << endl;
-        cout << "Option 3: Add node at front" << endl;
-        cout << "Option 4: Delete Node" << endl;
-        cout << "Option 5: Size of List" << endl;
-        cout << "Option 6: Search List" << endl;
-        cout << "Option 7: Update A Node" << endl;
-        cout << "Option 8: Display List" << endl;
-        cout << "Option 9: Make pre-made list" <<endl;
-        cout << endl;
-        cout << "Enter your selection: ";
-        cin >> selection;
+        char question;
+		do {
+			int selection;
+			cout << "Option 1: Make Node" << endl;
+			cout << "Option 2: Add node at selected destination" << endl;
+			cout << "Option 3: Add node at front" << endl;
+			cout << "Option 4: Delete Node" << endl;
+			cout << "Option 5: Size of List" << endl;
+			cout << "Option 6: Search List" << endl;
+			cout << "Option 7: Update A Node" << endl;
+			cout << "Option 8: Display List" << endl;
+			cout << "Option 9: Make pre-made list" << endl;
+			cout << endl;
+			cout << "Enter your selection: ";
+			cin >> selection;
 
-        if(!cin){
-            cout << error << endl;
-            return;
-        }
+			if (!cin) {
+				cout << error << endl;
+                return;
+			}
 
-        switch((int)selection){
-        case 1:
-            int node_info;
-            cout <<"Enter Information for the Node" << endl;
-            cin >> node_info;
-            make_node(node_info);
-            break;
-        case 2:
-            int location;
-            cout <<"Enter Information for the node" << endl;
-            cin >> node_info;
-            cout << "Enter the Location you would like to place this new node" << endl;
-            cin >> location;
-            add_at_position(location,node_info);
-            break;
-        case 3:
-            cout << "Enter node information" << endl;
-            cin >> node_info;
-            insert_front(node_info);
-            break;
-        case 4:
-            cout << "Select node information you would like to delete" << endl;
-            cin >> node_info;
-            delete_node(node_info);
-            break;
-        case 5:
-            cout << "Here is the current size of the list " << size_of() << endl;
-            break;
-        case 6:
-            cout << "Enter node information to find in the list" << endl;
-            cin >> node_info;
-            search_list(node_info);
-            break;
-        case 7:
-            cout << "Enter new Node information" << endl;
-            cin >> node_info;
-            cout << "Enter Node location you wish to update" << endl;
-            update_node(node_info,location);
-            break;
-        case 8:
-            display();
-            break;
-        case 9:
-            make_premade_list();
-            break;
-        default:
-            cout << " not a selection" << endl;
-            break;
-        }
+			switch ((int)selection) {
+			case 1:
+				int node_info;
+				cout << "Enter Information for the Node" << endl;
+				cin >> node_info;
+				make_node(node_info);
+				break;
+			case 2:
+				int location;
+				cout << "Enter Information for the node" << endl;
+				cin >> node_info;
+				cout << "Enter the Location you would like to place this new node" << endl;
+				cin >> location;
+				add_at_position(location, node_info);
+				break;
+			case 3:
+				cout << "Enter node information" << endl;
+				cin >> node_info;
+				insert_front(node_info);
+				break;
+			case 4:
+				cout << "Select node information you would like to delete" << endl;
+				cin >> node_info;
+				delete_node(node_info);
+				break;
+			case 5:
+				cout << "Here is the current size of the list " << size_of() << endl;
+				break;
+			case 6:
+				cout << "Enter node information to find in the list" << endl;
+				cin >> node_info;
+				search_list(node_info);
+				break;
+			case 7:
+				cout << "Enter new Node information" << endl;
+				cin >> node_info;
+				cout << "Enter Node location you wish to update" << endl;
+				update_node(node_info, location);
+				break;
+			case 8:
+				display();
+				break;
+			case 9:
+				make_premade_list();
+				break;
+			default:
+				cout << " not a selection" << endl;
+				break;
+			}
+			do {
+				cout << endl;
+				cout << "Continue?(y/n) ";
+				cin >> question;
+			}while (question != 'Y' & question != 'y' & question != 'N' & question != 'n');
+			cout << endl;
+		}while (question != 'N' & question != 'n');
     }
 
 };
@@ -301,17 +310,6 @@ public:
 
 int main()
 {
-    nodes obj1;
-    char question;
-    do{
-        obj1.menu();
-        do{
-            cout << endl;
-            cout << "Continue?(y/n) ";
-            cin >> question;
-        }
-        while(question != 'Y' & question != 'y' & question != 'N' & question != 'n');
-        cout << endl;
-    }
-    while(question != 'N' & question != 'n');
+	nodes obj1;
+	obj1.menu();
 }
