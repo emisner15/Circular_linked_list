@@ -244,7 +244,7 @@ public:
 
 			if (!cin) {
 				cout << error << endl;
-                return;
+                		return;
 			}
 
 			switch ((int)selection) {
